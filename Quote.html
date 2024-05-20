@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makeup Booking</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #555;
+            text-align: center;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+            transform: scale(1.2);
+        }
+
+        input[type="date"],
+        input[type="time"],
+        input[type="text"] {
+            width: calc(100% - 12px);
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+            transform: scale(1.2);
+        }
+
+        #totalPrice, #paymentAmount {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        #payButton {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: #ff6b6b;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #payButton:hover {
+            background-color: #e74c3c;
+        }
+
+        .paymentOptions {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makeup Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .menu-item {
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            color: #555;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #total-price {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .menu-container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .menu-column {
+        flex: 1;
+    }
+    .notification {
+    background-color: #f8d7da; /* Red background for the notification */
+    color: #721c24; /* Dark red text color */
+    padding: 10px; /* Padding around the notification */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 20px; /* Spacing below the notification */
+}
+
+label {
+    display: block; /* Labels displayed as block elements */
+    margin-bottom: 10px; /* Spacing below each label */
+}
+
+#safetyDeposit {
+    width: 100%; /* Full width for the input field */
+    padding: 8px; /* Padding inside the input field */
+    margin-bottom: 20px; /* Spacing below the input field */
+}
+
+#paymentMethod {
+    width: 100%; /* Full width for the select dropdown */
+    padding: 8px; /* Padding inside the select dropdown */
+    margin-bottom: 20px; /* Spacing below the select dropdown */
+}
+
+.payment-icons {
+    display: flex; /* Flexbox layout for payment icons */
+    justify-content: space-around; /* Equal spacing between payment icons */
+}
+
+.payment-icons a {
+    text-decoration: none; /* Remove underline from anchor tags */
+    color: #333; /* Icon color */
+}
+
+.payment-icons a:hover {
+    color: #007bff; /* Icon color on hover */
+}
+
+.payment-icons i {
+    font-size: 30px; /* Icon size */
+}
+
+input[type="radio"] {
+    margin-right: 5px; /* Spacing between radio button and text */
+    transform: scale(1.2); /* Increase radio button size */
+}
+
+
+        
+    </style>
+</head>
+<body>
+    <h1>Makeup Menu</h1>
+    <div class="menu-container">
+        <div class="menu-column">
+            <form>
+                <div class="menu-item">
+                    <label for="foundation">Foundation - ₹500</label>
+                    <input type="checkbox" id="foundation" name="foundation" value="500">
+                </div>
+                <div class="menu-item">
+                    <label for="concealer">Concealer - ₹400</label>
+                    <input type="checkbox" id="concealer" name="concealer" value="400">
+                </div>
+                <div class="menu-item">
+                    <label for="powder">Powder - ₹300</label>
+                    <input type="checkbox" id="powder" name="powder" value="300">
+                </div>
+                <div class="menu-item">
+                    <label for="powder">Natural Look: ₹6000</label>
+                    <input type="checkbox" id="powder" name="powder" value="6000">
+                </div>
+            </form>
+        </div>
+        <div class="menu-column">
+            <form>
+                <div class="menu-item">
+                    <label for="eyeshadow">Eyeshadow: ₹400</label>
+                    <input type="checkbox" id="eyeshadow" name="eyeshadow" value="400">
+                </div>
+                <div class="menu-item">
+                    <label for="eyebrow">Eyebrow products (pencils, gels, pomades): ₹300</label>
+                    <input type="checkbox" id="eyebrow" name="eyebrow" value="300">
+                </div>
+                <div class="menu-item">
+                    <label for="lipstick">Lipstick: ₹350</label>
+                    <input type="checkbox" id="lipstick" name="lipstick" value="350">
+                </div>
+                <div class="menu-item">
+                    <label for="primer">Primer (face, eye, and lip): ₹450</label>
+                    <input type="checkbox" id="primer" name="primer" value="450">
+                </div>
+                <div id="total-price"></div>
+            </form>
+        </div>
+    </div>
+        
+    <script>
+        // Function to calculate and display total price
+        function updateTotalPrice() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            var totalPrice = 0;
+            checkboxes.forEach(function(checkbox) {
+                if (checkbox.checked) {
+                    totalPrice += parseInt(checkbox.value);
+                }
+            });
+            document.getElementById('total-price').textContent = "Total Price: ₹" + totalPrice;
+        }
+
+        // Add event listeners to checkboxes to update total price when checked/unchecked
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', updateTotalPrice);
+        });
+
+        // Function to handle booking
+        function bookNow() {
+            // Your booking logic here
+            alert("Booking complete!");
+        }
+    </script>
+
+
+
+        <!-- Date, Time, and Location Selection -->
+        <h2>Date, Time, and Location</h2>
+        <form id="dateTimeForm">
+            <input type="date" name="appointmentDate" required><br>
+            <input type="time" name="appointmentTime" required><br>
+            <input type="text" name="appointmentLocation" placeholder="Location (e.g., Salon Name)" required><br>
+        </form>
+
+        <!-- Payment Section -->
+        <h2>Payment</h2>
+        <form id="paymentForm">
+            <label><input type="radio" name="paymentOption" value="50%"> 50% Payment Now before service</label><br>
+            <label for="safetyDeposit">Safety Deposit (Rs 200):</label>
+        <input type="number" id="safetyDeposit" name="safetyDeposit" min="0" step="1" value="200">
+
+        <p class="notification">Cancellation must be done at least 3 hours before the appointment.</p>
+        <label for="paymentMethod">Select Payment Method:</label>
+        <select id="paymentMethod">
+            <option value="googlePay">Google Pay</option>
+            <option value="phonePe">PhonePe</option>
+            <option value="paytm">Paytm</option>
+        </select>
+        <div class="payment-icons">
+            <a href="https://pay.google.com" target="_blank" title="Google Pay">
+                <i class="fab fa-google-pay"></i>
+            </a>
+            <a href="https://www.phonepe.com" target="_blank" title="PhonePe">
+                <i class="fab fa-phonepe"></i>
+            </a>
+            <a href="https://paytm.com" target="_blank" title="Paytm">
+                <i class="fab fa-paytm"></i>
+            </a>
+        </div>
+            <label><input type="radio" name="paymentOption" value="100%"> 100% Payment After Service</label><br>
+        </form>
+        
+        <!-- Payment Amount and Button -->
+        <div id="paymentAmount" class="paymentOptions"></div>
+        <button id="payButton" class="paymentOptions"><a href="./index.html">Pay Now</a></button>
+        
+    </div>
+
+    <script>
+        // Function to calculate and display total price
+        function updateTotalPrice() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            var totalPrice = 0;
+            checkboxes.forEach(function(checkbox) {
+                if (checkbox.checked) {
+                    totalPrice += parseInt(checkbox.value);
+                }
+            });
+            document.getElementById('total-price').textContent = "Total Price: ₹" + totalPrice;
+        }
+    
+        // Add event listeners to checkboxes to update total price when checked/unchecked
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', updateTotalPrice);
+        });
+    </script>
+</body>
+</html>

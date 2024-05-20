@@ -1,0 +1,172 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px !important;
+}
+ 
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
+.profileWidget {
+    position: relative; /* Ensure relative positioning for the exit button */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 80%;
+    height: 400px;
+    margin: auto;
+}
+.profileBanner {
+    margin-bottom: 20px;
+}
+ 
+.profileThumb img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+ 
+.profileWidget h4 {
+    margin-top: 0;
+    color: #333;
+}
+ 
+.profileWidget h5 {
+    margin: 5px 0;
+    color: #555;
+}
+ 
+.profileWidget p {
+    margin-bottom: 20px;
+    color: #777;
+}
+ 
+.profileWidget ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+ 
+.profileWidget ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+ 
+.profileWidget ul li:last-child {
+    margin-right: 0;
+}
+ 
+.profileWidget ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+/* On hover, change the background color of the buttons */
+button:hover {
+    background-color: #45a049;
+}
+.profileBanner img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Makes the image round */
+    border: 3px solid #fff; /* Optional: Adds a white border around the image */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow */
+}
+.exitButton {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.exitButton:hover {
+    color: #ff0000; /* Change color on hover if desired */
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"],
+button[type="reset"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button[type="submit"]:hover,
+button[type="reset"]:hover {
+    background-color: #0056b3;
+}
