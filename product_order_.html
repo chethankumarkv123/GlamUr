@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Product Ordering Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease;
+    }
+
+    p {
+      color: #555;
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    select, input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .add-to-cart {
+      background-color: #ff9900;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      animation: bounce 0.5s ease;
+    }
+
+    .add-to-cart:hover {
+      background-color: #ff6600;
+    }
+
+    .shopping-cart {
+      margin-top: 20px;
+      background-color: #f9f9f9;
+      padding: 10px;
+      border-radius: 5px;
+      animation: slideInRight 1s ease;
+    }
+
+    .cart-items {
+      font-weight: bold;
+    }
+
+    .checkout {
+      background-color: #0066cc;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .checkout:hover {
+      background-color: #005cbf;
+    }
+
+    /* Animations */
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(0%);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>AWS Product</h1>
+    <img src="./assets/images/Products images/Rse-Rmnce1.jpg" alt="AWS Product Image">
+    <p class="description">Product Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fringilla ante nec ante ullamcorper, sit amet convallis risus posuere.</p>
+    <p><strong>Price:</strong> <span id="product-price">1499.00</span></p> <!-- Dynamic price -->
+
+    <div class="options">
+      <div class="color-options">
+        <p><strong>Color Options:</strong></p>
+        <select name="color" id="color">
+          <option value="black">pink</option>
+          <option value="white">Gray</option>
+          <option value="blue">Brown</option>
+        </select>
+      </div>
+      <div class="size-options">
+        <p><strong>Skin Tone:</strong></p>
+        <select name="size" id="size">
+          <option value="small">Light Skin</option>
+          <option value="medium">Medium Skin</option>
+          <option value="large">Dark Skin </option>
+        </select>
+      </div>
+      <div class="quantity">
+        <p><strong>Quantity:</strong></p>
+        <input type="number" name="quantity" id="quantity" min="1" value="1">
+      </div>
+    </div>
+
+    <button class="add-to-cart">Add to Cart</button>
+
+    <div class="shopping-cart">
+      <img src="./assets/images/Products images/Pine15.jpg" alt="Cart Icon">
+      <p>Your Cart: <span class="cart-items">2</span></p>
+      <p>Subtotal: $<span class="subtotal">2998.00</span></p>
+      <p>Shipping: $<span class="shipping">99</span> (Estimated)</p>
+      <p>Total: $<span class="total">3.097</span></p>
+      <button class="checkout"><a href="./check-out.html">Proceed to Checkout</a></button>
+    </div>
+  </div>
+
+  <script>
+    // Function to fetch real-time currency exchange rate
+    function fetchExchangeRate() {
+      // You would need to replace 'YOUR_API_KEY' with your actual API key
+      const apiKey = 'YOUR_API_KEY';
+      fetch(`https://api.exchangerate-api.com/v4/latest/USD`)
+        .then(response => response.json())
+        .then(data => {
+          // Assuming INR is the target currency
+          const exchangeRate = data.rates.INR;
+          const productPriceUSD = 50; // Sample product price in USD
+          const productPriceINR = productPriceUSD * exchangeRate;
+          document.getElementById('product-price').textContent = `₹${productPriceINR.toFixed(2)}`; // Display price with currency symbol
+
+          // Calculate subtotal, shipping, and total for 2 products
+          const subtotal = 2 * productPriceINR;
+          const shipping = 10; // Sample shipping cost
+          const total = subtotal + shipping;
+
+          // Update HTML with calculated values
+          document.querySelector('.subtotal').textContent = subtotal.toFixed(2);
+          document.querySelector('.shipping').textContent = shipping.toFixed(2);
+          document.querySelector('.total').textContent = total.toFixed(2);
+        })
+        .catch(error => console.error('Error fetching exchange rate:', error));
+    }
+
+    // Call the function to fetch exchange rate when the page loads
+    fetchExchangeRate();
+  </script>
+
+</body>
+</html>

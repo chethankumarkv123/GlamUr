@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist</title>
+    <link rel="stylesheet" href="./wist.css">
+</head>
+<body>
+    <header>
+        <h1>My Wishlist</h1>
+    </header>
+    <main id="wishlist">
+        <!-- Sample wishlist items -->
+        <div class="wishlist-item">
+            <img src="./assets/images/Products images/STBOT995-1.jpg" alt="Product Image">
+            <div class="item-details">
+                <h2>Sample Beauty Product</h2>
+                <p>Description of the beauty product goes here.</p>
+                <p>Price: $25.00</p>
+                <label for="quantity">Quantity:</label>
+                <input type="number" class="quantity" name="quantity" value="1" min="1">
+            </div>
+            <div class="actions">
+                <button class="remove-btn">Remove</button>
+                <button class="buy-btn">Proceed to Buy</button>
+            </div>
+            
+        </div>
+        <div class="wishlist-item">
+            <img src="./assets/images/Products images/Slt1_2.jpg" alt="Product Image">
+            <div class="item-details">
+                <h2>Sample Beauty Product</h2>
+                <p>Description of the beauty product goes here.</p>
+                <p>Price: $25.00</p>
+                <label for="quantity">Quantity:</label>
+                <input type="number" class="quantity" name="quantity" value="1" min="1">
+            </div>
+            <div class="actions">
+                <button class="remove-btn">Remove</button>
+                <button class="buy-btn">Proceed to Buy</button>
+            </div>
+            
+        </div>
+        <div class="wishlist-item">
+            <img src="./assets/images/Products images/STBOT995-1.jpg" alt="Product Image">
+            <div class="item-details">
+                <h2>Sample Beauty Product</h2>
+                <p>Description of the beauty product goes here.</p>
+                <p>Price: $25.00</p>
+                <label for="quantity">Quantity:</label>
+                <input type="number" class="quantity" name="quantity" value="1" min="1">
+            </div>
+            <div class="actions">
+                <button class="remove-btn">Remove</button>
+                <button class="buy-btn">Proceed to Buy</button>
+            </div>
+            
+        </div>
+        <div class="wishlist-item">
+            <img src="./assets/images/Products images/Slt1_2.jpg" alt="Product Image">
+            <div class="item-details">
+                <h2>Sample Beauty Product</h2>
+                <p>Description of the beauty product goes here.</p>
+                <p>Price: $25.00</p>
+                <label for="quantity">Quantity:</label>
+                <input type="number" class="quantity" name="quantity" value="1" min="1">
+            </div>
+            <div class="actions">
+                <button class="remove-btn">Remove</button>
+                <button class="buy-btn">Proceed to Buy</button>
+            </div>
+            
+        </div>
+    </main>
+    <div class="total-price">
+        <p>Total Price: $25.00</p>
+    </div>
+    <footer>
+        <p>&copy; 2024 Your E-commerce Site</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+   document.addEventListener('DOMContentLoaded', function() {
+    const removeButtons = document.querySelectorAll('.remove-btn');
+    const buyButtons = document.querySelectorAll('.buy-btn');
+    const quantityInputs = document.querySelectorAll('.quantity');
+    const totalPriceElement = document.querySelector('.total-price p');
+
+    // Function to calculate and update the total price
+    function updateTotalPrice() {
+        let totalPrice = 0;
+        quantityInputs.forEach(input => {
+            const item = input.closest('.wishlist-item');
+            const priceText = item.querySelector('.item-details p:nth-child(3)').textContent; // Assuming price is always the third paragraph element
+            const price = parseFloat(priceText.replace('Price: $', '').trim());
+            const quantity = parseInt(input.value);
+            totalPrice += price * quantity;
+        });
+        totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(2)}`;
+    }
+
+    // Function to remove item with animation
+    function removeItemWithAnimation(item) {
+        item.classList.add('removing');
+        // Remove the item from the DOM after the animation finishes
+        item.addEventListener('animationend', function() {
+            item.remove();
+            updateTotalPrice(); // Update total price after removing an item
+        });
+    }
+
+    // Event listener for quantity input changes
+    quantityInputs.forEach(input => {
+        input.addEventListener('change', function() {
+            updateTotalPrice(); // Update total price whenever quantity changes
+        });
+    });
+
+    // Event listeners for remove buttons
+    removeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const item = this.parentNode.parentNode; // Go up two levels to reach the .wishlist-item
+            removeItemWithAnimation(item);
+        });
+    });
+
+    // Event listener for buy buttons
+    buyButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            alert("Proceeding to buy...");
+        });
+    });
+
+    // Initial total price calculation
+    updateTotalPrice();
+});
+
+    </script>
+    
+</body>
+</html>

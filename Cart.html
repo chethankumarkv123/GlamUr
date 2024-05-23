@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C/H GlamUr Website</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo/favicon.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style-prefix.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+
+
+  <div class="overlay" data-overlay></div>
+
+  <!--
+    - MODAL
+  -->
+
+  <div class="modal" data-modal>
+
+    <div class="modal-close-overlay" data-modal-overlay></div>
+
+    <div class="modal-content">
+
+      <button class="modal-close-btn" data-modal-close>
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+
+      <div class="newsletter-img">
+        <img src="./assets/images/newsletter.png" alt="subscribe newsletter" width="400" height="400">
+      </div>
+
+      <div class="newsletter">
+
+        <form action="#">
+
+          <div class="newsletter-header">
+
+            <h3 class="newsletter-title">Subscribe Newsletter.</h3>
+
+            <p class="newsletter-desc">
+              Subscribe the <b>GlamUr</b> to get latest products and discount update.
+            </p>
+
+          </div>
+
+          <input type="email" name="email" class="email-field" placeholder="Email Address" required>
+
+          <button type="submit" class="btn-newsletter">Subscribe</button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  <!--
+    - NOTIFICATION TOAST
+  -->
+
+  <div class="notification-toast" data-toast>
+
+    <button class="toast-close-btn" data-toast-close>
+      <ion-icon name="close-outline"></ion-icon>
+    </button>
+
+    <div class="toast-banner">
+      <img src="./assets/images/Products images/01_b96a3e62-1405-4133-9334-b1a9c4f1c252.webp" alt="Rose Gold Earrings" width="80" height="70">
+    </div>
+
+    <div class="toast-detail">
+
+      <p class="toast-message">
+        Someone in new just bought
+      </p>
+
+      <p class="toast-title">
+        WRYAK Professional Makeup Kit with Makeup brushes
+      <p class="toast-meta">
+        <time datetime="PT2M">2 Minutes</time> ago
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  <!--
+    - HEADER
+  -->
+
+  <header>
+
+    <div class="header-top">
+
+      <div class="container">
+
+        <ul class="header-social-container">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+        <div class="header-alert-news">
+          <p>
+            <b>Free Shipping</b>
+            This Week Order Over - ₹55
+          </p>
+        </div>
+
+        <div class="header-top-actions">
+
+          <select name="currency">
+
+            <option value="INR">INR ₹</option>
+          
+
+          </select>
+
+          <select name="language">
+
+            <option value="en-US">English</option>
+            
+
+          </select>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="header-main">
+
+      <div class="container">
+
+        <a href="#" class="header-logo">
+          <img src="./assets/images/logo/GlamUr_logo.png" alt="Anon's logo" width="150" height="50">
+        </a>
+
+        <div class="header-search-container">
+
+          <input type="search" name="search" class="search-field" placeholder="Enter your product name...">
+
+          <button class="search-btn">
+            <ion-icon name="search-outline"></ion-icon>
+          </button>
+
+        </div>
+
+        <div class="header-user-actions">
+
+          <button class="action-btn">
+           <a href="./User_profile.html"><ion-icon name="person-outline"></ion-icon></button></a>
+          </button>
+
+          <button class="action-btn">
+           <a href="./Cart.html"><ion-icon name="heart-outline"></ion-icon></a> 
+            <span class="count">0</span>
+          </button>
+
+          <button class="action-btn">
+            <ion-icon name="bag-handle-outline"></ion-icon>
+            <span class="count">0</span>
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <nav class="desktop-navigation-menu">
+      
+
+      <div class="container">
+
+        <ul class="desktop-menu-category-list">
+
+          <li class="menu-category">
+            <a href="./Home.html" class="menu-title">Home</a>
+          </li>
+
+          <li class="menu-category">
+            <a href="./index.html" class="menu-title">Shop</a>
+
+            <div class="dropdown-panel">
+
+              <ul class="dropdown-panel-list">
+
+                <li class="menu-title">
+                  <a href="#">Lips</a>
+                </li>
+
+                <li class="panel-list-item">
+                  <a href="#">Lipstick</a>
+                </li>
+
+                <li class="panel-list-item">
+                  <a href="#">Crayon Lipstick</a>
+                </li>
+
+                <li class="panel-list-item">
+                  <a href="#">Liquid Lipstick</a>
+                </li>
+
+                <li class="panel-list-item">
+                  <a href="#">Hi-Shine Lipstick</a>
+                </li>
+                <li class="panel-list-item">
+                  <a href="#">Matte Lipstick</a>
+                </li>
+                <li class="panel-list-item">
+                  <a href="#">Lip Gloss</a>
+                </li>
+                <li class="panel-list-item">
+                  <a href="#">Lip Stain</a>
+                </li>
+                <li class="panel-list-item">
+                  <a href="#">Lipstick Set</a>
+                </li>
+                <li class="panel-list-item">
+                  <a href="#">
+                    <img src="./assets/images/Glamur images/Lips.jpg" alt="women's fashion" width="250" height="119">
+                  </a>
+                </li>
+              </ul>
+
+              <ul class="dropdown-panel-list">
+
+                <li class="menu-title">
+                  <a href="#">Face</a>
+                </li>
+
+                <li class="panel-list-item">
+                  <a href="#">Loose Powders & Fixers</a>
+                </li>
+
+                <li class="panel-list-item">
+                  <a href="#">Primer</a>
+                </li>
+
+                <li class="panel-list-item">
+                  <a href="#">Concealer</a>
+                </li>
+
+                <li class="panel-list-item">
+                  <a href="#">Foundation</a>
+                </li>
+
+                <li class="panel-list-item">
+                  <a href="#">Makeup Remover</a>
+                </li>
+                <li class="panel-list-item">
+                  <a href="#">
+                    <img src="./assets/images/Glamur images/Face.jpg" alt="women's fashion" width="250" height="119">
+                  </a>
+                </li>
+              </ul>
+
+              <ul class="dropdown-panel-list">
+
+                <li class="menu-title">
+                  <a href="#">Eyes</a>
+                </li>
+
+                <li class="panel-list-item">
+                  <a href="#">Eye Shadow</a>
+                </li>
+
+                <li class="panel-list-item">
+                  <a href="#">Eyeliner</a>
+                </li>
+
+                <li class="panel-list-item">
+                  <a href="#">Eyebrows</a>
+                </li>
+
+                <li class="panel-list-item">
+                  <a href="#">Glitter</a>
+                </li>
+
+                <li class="panel-list-item">
+                  <a href="#">Bagso	Mascara</a>
+                </li>
+                <li class="panel-list-item">
+                  <a href="#">Kajal</a>
+                </li>
+
+                <li class="panel-list-item">
+                  <a href="#">Eye Combos</a>
+                </li>
+
+                <li class="panel-list-item">
+                  <a href="#">
+                    <img src="./assets/images/Glamur images/eyes.jpg" alt="women's fashion" width="250" height="119">
+                  </a>
+                </li>
+
+              </ul>
+
+              <ul class="dropdown-panel-list">
+
+                <li class="menu-title">
+                  <a href="#">MAKEUP ACCESSORIES</a>
+                </li>
+
+                <li class="panel-list-item">
+                  <a href="#">Makeup Brushes</a>
+                </li>
+
+                <li class="panel-list-item">
+                  <a href="#">Eyeshadow Brushes</a>
+                </li>
+
+               
+                <li class="panel-list-item">
+                  <a href="#">
+                    <img src="assets/images/Glamur images/Mackup ass.jpg" alt="women's fashion" width="250" height="119">
+                  </a>
+                </li>
+              </ul>
+              <ul class="dropdown-panel-list">
+                <li class="menu-title">
+                  <a href="#">Hair Care</a>
+                  <li class="panel-list-item">
+                    <a href="#">Shampoo</a>
+                  </li>
+                  <li class="panel-list-item">
+                    <a href="#">Hair Oil</a>
+                  </li>
+                  <li class="panel-list-item">
+                    <a href="#">Serum</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="#">Hair Mask</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="#">Combos</a>
+                  </li>
+                </li>
+                <li class="panel-list-item">
+                  <a href="#">
+                    <img src="./assets/images/Glamur images/Hair.jpg" alt="women's fashion" width="250" height="119">
+                  </a>
+                </li>
+              </ul>
+              <ul class="dropdown-panel-list">
+                <li class="menu-title">
+                  <a href="#">Bath & Body</a>
+                  <li class="panel-list-item">
+                    <a href="#">Shower Gels</a>
+                  </li>
+                  <li class="panel-list-item">
+                    <a href="#">Soaps</a>
+                  </li>
+                  <li class="panel-list-item">
+                    <a href="#">Serumo	Body Lotion</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="#">Hand Wash</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="#">Foot Cream</a>
+                  </li>
+                  <li class="panel-list-item">
+                    <a href="#">Hand Cream</a>
+                  </li>
+                </li>
+                <li class="panel-list-item">
+                  <a href="#">
+                    <img src="./assets/images/Glamur images/body.jpg" alt="women's fashion" width="250" height="119">
+                  </a>
+                </li>
+              </ul>
+              <ul class="dropdown-panel-list">
+                <li class="menu-title">
+                  <a href="#">Skincare</a>
+                  <li class="panel-list-item">
+                    <a href="#">Moisturizer</a>
+                  </li>
+                  <li class="panel-list-item">
+                    <a href="#">Night Cream</a>
+                  </li>
+                  <li class="panel-list-item">
+                    <a href="#">Eye Cream</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="#">Body Lotion</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="#">Serum</a>
+                  </li>
+                  <li class="panel-list-item">
+                    <a href="#">	Sunscreen</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="#">Skincare Kits</a>
+                </li>
+                <li class="panel-list-item">
+                  <a href="#">
+                    <img src="./assets/images/Glamur images/Skin.jpg" alt="women's fashion" width="250" height="119">
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+
+          <li class="menu-category">
+            <a href="./Artist.html" class="menu-title">Book Mackup Artist</a>
+
+            <ul class="dropdown-list">
+              <form id="bookingForm">
+                <label for="serviceType">Beauty select your makeup Type:</label>
+                <select id="serviceType" onchange="showOptions()">
+                    <option value="">Select an option</option>
+                    <option value="regular">Regular Makeup</option>
+                    <option value="bridal">Bridal Makeup</option>
+                    <option value="other">Other Functions</option>
+                </select>
+        
+                <div id="regularOptions" style="display: none;">
+                    <label for="regularMakeup">Select Regular Makeup Option:</label>
+                    <select id="regularMakeup">
+                        <option value="">Select an option</option>
+                        <option value="daytime">Foundation</option>
+                        <option value="evening">Concealer</option>
+                        <option value="daytime">Powder</option>
+                        <option value="evening">Blush</option>
+                        <option value="daytime">Bronzer</option>
+                        <option value="evening">Highlighter</option>
+                        <option value="daytime">Eyeshadow</option>
+                        <option value="evening">Eyeliner</option>
+                        <option value="daytime">Mascara</option>
+                        <option value="evening">Lip gloss </option>
+                        <option value="daytime">Lipstick</option>
+                        <option value="evening">Lip liner</option>
+                        <option value="daytime">Setting spray</option>
+                        <option value="evening">Primer (face, eye, and lip) </option>
+                        <option value="specialOccasion">Special Occasion Makeup</option>
+                    </select>
+                </div>
+        
+                <div id="bridalOptions" style="display: none;">
+                    <label for="bridalMakeup">Select Bridal Makeup Option:</label>
+                    <select id="bridalMakeup">
+                        <option value="">Select an option</option>
+                        <option value="trial">Natural Look</option>
+                        <option value="weddingDay">Longevity</option>
+                        <option value="trial">Skin Preparation</option>
+                        <option value="weddingDay">Wedding Day Makeup</option>
+                        <option value="trial">Enhanced Featuresn</option>
+                        <option value="weddingDay">Customization</option>
+                    </select>
+                </div>
+         
+                <div id="otherOptions" style="display: none;">
+                    <label for="otherServices">Enter Details of Other Function:</label>
+                    <input type="text" id="otherServices" placeholder="Enter details here">
+                </div>
+        
+                <button type="submit">Submit Booking</button>
+            </form>
+        
+            <script>
+                function showOptions() {
+                    var serviceType = document.getElementById("serviceType").value;
+                    var regularOptions = document.getElementById("regularOptions");
+                    var bridalOptions = document.getElementById("bridalOptions");
+                    var otherOptions = document.getElementById("otherOptions");
+        
+                    regularOptions.style.display = "none";
+                    bridalOptions.style.display = "none";
+                    otherOptions.style.display = "none";
+        
+                    if (serviceType === "regular") {
+                        regularOptions.style.display = "block";
+                    } else if (serviceType === "bridal") {
+                        bridalOptions.style.display = "block";
+                    } else if (serviceType === "other") {
+                        otherOptions.style.display = "block";
+                    }
+                }
+            </script>
+                    <!-- 
+              <li class="dropdown-item">
+                <a href="#">Wedding</a>
+              </li>
+
+              <li class="dropdown-item">
+                <a href="#">Hp makeup</a>
+              </li>
+
+              <li class="dropdown-item">
+                <a href="#">hair-style</a>
+              </li>
+            -->
+            </ul>
+          </li>
+        
+          <li class="menu-category">
+            <a href="#" class="menu-title">Blog</a>
+          </li>
+        </ul>
+
+      </div>
+
+    </nav>
+  </header>
+
+
+
+  <footer>
+
+    <div class="footer-category">
+
+      <div class="container">
+
+        <h2 class="footer-category-title">Brand directory</h2>
+
+        <div class="footer-category-box">
+
+          <h3 class="category-box-title">Fashion :</h3>
+
+          <a href="#" class="footer-category-link">T-shirt</a>
+          <a href="#" class="footer-category-link">Shirts</a>
+          <a href="#" class="footer-category-link">shorts & jeans</a>
+          <a href="#" class="footer-category-link">jacket</a>
+          <a href="#" class="footer-category-link">dress & frock</a>
+          <a href="#" class="footer-category-link">innerwear</a>
+          <a href="#" class="footer-category-link">hosiery</a>
+
+        </div>
+
+        <div class="footer-category-box">
+          <h3 class="category-box-title">footwear :</h3>
+        
+          <a href="#" class="footer-category-link">sport</a>
+          <a href="#" class="footer-category-link">formal</a>
+          <a href="#" class="footer-category-link">Boots</a>
+          <a href="#" class="footer-category-link">casual</a>
+          <a href="#" class="footer-category-link">cowboy shoes</a>
+          <a href="#" class="footer-category-link">safety shoes</a>
+          <a href="#" class="footer-category-link">Party wear shoes</a>
+          <a href="#" class="footer-category-link">Branded</a>
+          <a href="#" class="footer-category-link">Firstcopy</a>
+          <a href="#" class="footer-category-link">Long shoes</a>
+        </div>
+
+        
+
+        <div class="footer-category-box">
+          <h3 class="category-box-title">cosmetics :</h3>
+        
+          <a href="#" class="footer-category-link">Shampoo</a>
+          <a href="#" class="footer-category-link">Bodywash</a>
+          <a href="#" class="footer-category-link">Facewash</a>
+          <a href="#" class="footer-category-link">makeup kit</a>
+          <a href="#" class="footer-category-link">liner</a>
+          <a href="#" class="footer-category-link">lipstick</a>
+          <a href="#" class="footer-category-link">prefume</a>
+          <a href="#" class="footer-category-link">Body soap</a>
+          <a href="#" class="footer-category-link">scrub</a>
+          <a href="#" class="footer-category-link">hair gel</a>
+          <a href="#" class="footer-category-link">hair colors</a>
+          <a href="#" class="footer-category-link">hair dye</a>
+          <a href="#" class="footer-category-link">sunscreen</a>
+          <a href="#" class="footer-category-link">skin loson</a>
+          <a href="#" class="footer-category-link">liner</a>
+          <a href="#" class="footer-category-link">lipstick</a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-nav">
+
+      <div class="container">
+
+        <ul class="footer-nav-list">
+
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Popular Categories</h2>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Fashion</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Electronic</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Cosmetic</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Health</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Watches</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-nav-list">
+        
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Products</h2>
+          </li>
+        
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Prices drop</a>
+          </li>
+        
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">New products</a>
+          </li>
+        
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Best sales</a>
+          </li>
+        
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Contact us</a>
+          </li>
+        
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Sitemap</a>
+          </li>
+        
+        </ul>
+
+        <ul class="footer-nav-list">
+        
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Our Company</h2>
+          </li>
+        
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Delivery</a>
+          </li>
+        
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Legal Notice</a>
+          </li>
+        
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Terms and conditions</a>
+          </li>
+        
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">About us</a>
+          </li>
+        
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Secure payment</a>
+          </li>
+        
+        </ul>
+
+        <ul class="footer-nav-list">
+        
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Services</h2>
+          </li>
+        
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Prices drop</a>
+          </li>
+        
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">New products</a>
+          </li>
+        
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Best sales</a>
+          </li>
+        
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Contact us</a>
+          </li>
+        
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Sitemap</a>
+          </li>
+        
+        </ul>
+
+        <ul class="footer-nav-list">
+
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Contact</h2>
+          </li>
+
+          <li class="footer-nav-item flex">
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <address class="content">
+              419 State 414 Rte
+              Beaver Dams, New York(NY), 14812, USA
+            </address>
+          </li>
+
+          <li class="footer-nav-item flex">
+            <div class="icon-box">
+              <ion-icon name="call-outline"></ion-icon>
+            </div>
+
+            <a href="tel:+607936-8058" class="footer-nav-link">(607) 936-8058</a>
+          </li>
+
+          <li class="footer-nav-item flex">
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <a href="mailto:example@gmail.com" class="footer-nav-link">example@gmail.com</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-nav-list">
+
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Follow Us</h2>
+          </li>
+
+          <li>
+            <ul class="social-link">
+
+              <li class="footer-nav-item">
+                <a href="#" class="footer-nav-link">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+              </li>
+
+              <li class="footer-nav-item">
+                <a href="#" class="footer-nav-link">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </li>
+
+              <li class="footer-nav-item">
+                <a href="#" class="footer-nav-link">
+                  <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+              </li>
+
+              <li class="footer-nav-item">
+                <a href="#" class="footer-nav-link">
+                  <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+      <div class="container">
+
+        <img src="./assets/images/payment.png" alt="payment method" class="payment-img">
+
+        <p class="copyright">
+          Copyright &copy; <a href="#">Anon</a> all rights reserved.
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
