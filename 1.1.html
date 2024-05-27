@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Makeup Artist Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
     <style>
-        body {
+ body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -42,48 +43,59 @@
         }
 
         .profile-image {
-            float: left;
-            width: 600px;
-            height: 350px;
-            object-fit: cover;
-            border-radius: 50%;
-            padding: 50px;
+            width: 370px; /* Set a fixed width for the profile image container */
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
         }
+
         .profile-image img {
             width: 100%;
+            height: auto;
             border-top-left-radius: 8px;
             border-bottom-left-radius: 8px;
+            object-fit: cover;
         }
+
         .profile-info {
             float: right;
             width: 60%;
             padding: 20px;
         }
+
         .profile-info h2 {
             margin-top: 0;
             font-size: 24px;
             color: #333;
         }
+
         .profile-info p {
             font-size: 16px;
             color: #666;
             margin-bottom: 10px;
         }
+
         .profile-info .rating {
             color: #ff9800;
         }
+
         .profile-info .achievements {
             font-style: italic;
         }
+
         .location-icon {
             color: #666;
             margin-right: 5px;
         }
+
         .dropdown {
             width: 100%;
             position: relative;
             margin-bottom: 10px;
         }
+
         .dropdown select {
             width: 100%;
             padding: 10px;
@@ -96,6 +108,7 @@
             -moz-appearance: none;
             cursor: pointer;
         }
+
         .dropdown::before {
             content: "\f107";
             font-family: "Font Awesome 5 Free";
@@ -106,6 +119,7 @@
             color: #888;
             pointer-events: none;
         }
+
         /* Button styles */
         button {
             background-color: #ff69b4; /* Pink color */
@@ -117,6 +131,7 @@
             cursor: pointer;
             margin-right: 10px;
         }
+
         button:hover {
             background-color: #ff1493; /* Darker pink on hover */
         }
@@ -131,6 +146,16 @@
             flex: 1;
             margin-right: 0px; /* Adjust spacing between containers */
         }
+
+        .profile-con {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
         .picture-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -161,19 +186,326 @@
             cursor: pointer;
         }
 
+        .artist-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+            width: 300px;
+            display: flex;
+            overflow-x: auto; /* Add horizontal scrollbar */
+            scrollbar-width: thin;
+           
+        }
+
+        .artist-card {
+            width: 300px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .artist-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .artist-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .artist-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .artist-card button {
+            background-color: #ff69b4;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .artist-card button:hover {
+            background-color: #ff1493;
+        }
+
+        /* Review Section */
+        .review-section {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-form {
+            width: 45%;
+        }
+
+        .review-form textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            resize: vertical;
+        }
+
+        .review-form button {
+            margin-top: 10px;
+        }
+
+        .comments-section {
+            width: 45%;
+        }
+
+        .comments {
+            margin-top: 20px;
+        }
+
+        .comment {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+            font-size: 16px;
+            color: #333;
+        }
+        .load-more {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .load-more button {
+            background-color: #ff69b4; /* Pink color */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .load-more button:hover {
+            background-color: #ff1493; /* Darker pink on hover */
+        }
+        .category-item-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: auto hidden;
+  scroll-snap-type: inline mandatory;
+  overscroll-behavior-inline: contain;
+}
+.has-scrollbar { padding-bottom: 5px; }
+
+.has-scrollbar::-webkit-scrollbar {
+  width: 12px; /* for vertical scroll */
+  height: 12px; /* for horizontal scroll */
+}
+
+.has-scrollbar::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: 3px solid var(--white);
+  border-radius: 20px;
+}
+
+.has-scrollbar:hover::-webkit-scrollbar-thumb { background: hsl(0, 0%, 90%); }
+
+.has-scrollbar::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 80%); }
     </style>
 </head>
 <body>
 
+    <script>
+        // Function to count pictures in each container
+        function countPictures(containerId) {
+            var pictureCount = document.querySelectorAll('#' + containerId + ' .picture-container .picture').length;
+            document.querySelector('#' + containerId + ' .count').innerText = "(" + pictureCount + ")";
+            
+            // Hide excess pictures or videos if more than 6
+            var pictures = document.querySelectorAll('#' + containerId + ' .picture-container .picture');
+            for (var i = 6; i < pictures.length; i++) {
+                pictures[i].style.display = 'none';
+            }
+        }
+    
+        // Call countPictures function for each container
+        window.onload = function() {
+            countPictures('portfolio');
+            countPictures('album');
+            countPictures('videos');
+        };
+    
+        // Function to handle view more button click
+        function toggleView(containerId) {
+            var pictures = document.querySelectorAll('#' + containerId + ' .picture-container .picture.more');
+            for (var i = 0; i < pictures.length; i++) {
+                if (pictures[i].style.display === 'none') {
+                    pictures[i].style.display = 'block';
+                    document.querySelector('#' + containerId + ' .view-more button').innerText = 'View Less';
+                } else {
+                    pictures[i].style.display = 'none';
+                    document.querySelector('#' + containerId + ' .view-more button').innerText = 'View More';
+                }
+            }
+        }
+        function bookAppointment() {
+            alert('Booking appointment...');
+            // Add your booking logic here
+        }
 
+        function requestQuotation() {
+            alert('Requesting quotation...');
+            // Add your quotation logic here
+        }
+        function submitReview() {
+            var reviewText = document.getElementById("review-text").value;
+            if (reviewText.trim() !== '') {
+                var commentsSection = document.getElementById("comments-section");
+                var newComment = document.createElement("div");
+                newComment.className = "comment";
+                newComment.textContent = reviewText;
+                commentsSection.appendChild(newComment);
+                document.getElementById("review-text").value = ""; // Clear the textarea after submission
+            }
+        }
 
-<div class="container">
+        function loadMoreComments() {
+            var comments = document.getElementsByClassName("comment");
+            var loadMoreButton = document.getElementById("load-more");
+
+            for (var i = 0; i < comments.length; i++) {
+                comments[i].style.display = "block";
+            }
+
+            loadMoreButton.innerHTML = "<button onclick='loadLessComments()'>Load Less</button>";
+        }
+
+        function loadLessComments() {
+            var comments = document.getElementsByClassName("comment");
+            var loadMoreButton = document.getElementById("load-more");
+
+            for (var i = 4; i < comments.length; i++) {
+                comments[i].style.display = "none";
+            }
+
+            loadMoreButton.innerHTML = "<button onclick='loadMoreComments()'>Load More</button>";
+        }
+        let previousState = ''; // Variable to store previous state
+
+              // Function to show quotation section
+              function showQuotation() {
+            document.getElementById('quotation-section').style.display = 'block';
+            document.getElementById('booking-section').style.display = 'none';
+        }
+    
+        // Function to show booking section
+        function showBooking() {
+            document.getElementById('booking-section').style.display = 'block';
+            document.getElementById('quotation-section').style.display = 'none';
+        }
+    
+        // Function to calculate total price
+        function calculateTotal() {
+            // Get all checkboxes
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            let totalPrice = 0;
+    
+            // Loop through each checkbox
+            checkboxes.forEach((checkbox) => {
+                // If checkbox is checked, add its value to totalPrice
+                if (checkbox.checked) {
+                    const priceElement = checkbox.parentElement.previousElementSibling;
+                    totalPrice += parseInt(priceElement.innerText.slice(1));
+                }
+            });
+    
+            // Display total price
+            document.getElementById('total-price').innerText = `Total Price: ₹${totalPrice}`;
+        }
+    
+        // Function to download selected services as plain text
+        function downloadServices() {
+            let content = "Selected Services:\n\n";
+    
+            // Get all checkboxes
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    
+            // Loop through each checkbox
+            checkboxes.forEach((checkbox) => {
+                // If checkbox is checked, add the service and price to the content
+                if (checkbox.checked) {
+                    const row = checkbox.parentElement.parentElement;
+                    const service = row.cells[0].innerText;
+                    const price = row.cells[1].innerText;
+                    content += `${service}: ${price}\n`;
+                }
+            });
+    
+            // Add the total price to the content
+            const totalPriceText = document.getElementById('total-price').innerText;
+            content += `\n${totalPriceText}`;
+    
+            // Create a data URI containing the plain text content
+            const dataUri = "data:text/plain;charset=utf-8," + encodeURIComponent(content);
+    
+            // Create a temporary anchor element and trigger download
+            const a = document.createElement('a');
+            a.href = dataUri;
+            a.download = "selected_services.txt"; // Set the download filename
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    
+        // Function to cancel download and reset the quotation section
+        function cancelDownload() {
+            // Uncheck all checkboxes
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach((checkbox) => {
+                checkbox.checked = false;
+            });
+            // Reset total price
+            document.getElementById('total-price').innerText = `Total Price: ₹0`;
+            // Hide booking section and show quotation section
+            document.getElementById('booking-section').style.display = 'none';
+            document.getElementById('quotation-section').style.display = 'block';
+        }
+       // Function to cancel download and hide the quotation section
+function cancelDownload() {
+    // Uncheck all checkboxes
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((checkbox) => {
+        checkbox.checked = false;
+    });
+    // Reset total price
+    document.getElementById('total-price').innerText = `Total Price: ₹0`;
+    // Hide the quotation section
+    document.getElementById('quotation-section').style.display = 'none';
+}
+    </script>
+
+<div class="profile-con">
     <div class="profile-image">
-        <img src="C:\Users\T4538\Desktop\blog-1.jpg"alt="Makeup Artist">
+        <img src="./assets/images/Artists-img/1712307615_image4716.jpg"alt="Makeup Artist">
     </div>
     <div class="profile-info">
-        <h2>Jane Doe</h2>
-        <p><strong>Bio:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <h2>artist</h2>
+        <p><strong>Bio:</strong> Hey, I'm Divya, your go-to makeup artist in Bangalore! At 21, I'm all about crafting looks that make you feel fabulous, from everyday glam to special occasions. Let's bring out your beauty together!</p>
         <p><strong>Experience:</strong> 10+ years</p>
         <p><strong>Rating:</strong> <span class="rating">4.8</span> (Based on 100 reviews)</p>
         <p><strong> Location <i class="fas fa-map-marker-alt location-icon"></i>:</strong> New York City, NY</p>
@@ -191,10 +523,84 @@
         
         <!-- Buttons -->
         <button onclick="bookAppointment()">Book</button>
-        <button onclick="requestQuotation()">Quotation</button>
+            <button onclick="showQuotation()">Quotation</button>
         
     </div>
-    
+    <div id="quotation-section" style="display: none;">
+        <div class="menu-container">
+            <div class="menu-column">
+                <table id="makeup-table">
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Price (₹)</th>
+                            <th>Select</th> <!-- Move checkbox column to the right -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Foundation</td>
+                            <td>₹500</td>
+                            <td><input type="checkbox" id="foundation-checkbox" onchange="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Lipstick</td>
+                            <td>₹350</td>
+                            <td><input type="checkbox" id="lipstick-checkbox" onchange="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Eyeshadow</td>
+                            <td>₹400</td>
+                            <td><input type="checkbox" id="eyeshadow-checkbox" onchange="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Eyebrow products</td>
+                            <td>₹300</td>
+                            <td><input type="checkbox" id="eyebrow-checkbox" onchange="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Primer</td>
+                            <td>₹450</td>
+                            <td><input type="checkbox" id="primer-checkbox" onchange="calculateTotal()"></td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>Foundation</td>
+                            <td>₹500</td>
+                            <td><input type="checkbox" id="foundation-checkbox" onchange="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Lipstick</td>
+                            <td>₹350</td>
+                            <td><input type="checkbox" id="lipstick-checkbox" onchange="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Eyeshadow</td>
+                            <td>₹400</td>
+                            <td><input type="checkbox" id="eyeshadow-checkbox" onchange="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Eyebrow products Eyebrow products</td>
+                            <td>₹300</td>
+                            <td><input type="checkbox" id="eyebrow-checkbox" onchange="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Primer</td>
+                            <td>₹450</td>
+                            <td><input type="checkbox" id="primer-checkbox" onchange="calculateTotal()"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="menu-column">
+                <h3><div id="total-price"></div></h3>
+                <button onclick="downloadServices()">Download Quotation</button>
+                <button onclick="cancelDownload()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
 </div>
 <div class="sublinks">
     <a href="#portfolio">Projects</a>
@@ -263,44 +669,55 @@
             <button onclick="toggleView('videos')">View More</button>
         </div>
     </div>
-    
-    <script>
-        // Function to count pictures in each container
-        function countPictures(containerId) {
-            var pictureCount = document.querySelectorAll('#' + containerId + ' .picture-container .picture').length;
-            document.querySelector('#' + containerId + ' .count').innerText = "(" + pictureCount + ")";
-            
-            // Hide excess pictures or videos if more than 6
-            var pictures = document.querySelectorAll('#' + containerId + ' .picture-container .picture');
-            for (var i = 6; i < pictures.length; i++) {
-                pictures[i].style.display = 'none';
-            }
-        }
-    
-        // Call countPictures function for each container
-        window.onload = function() {
-            countPictures('portfolio');
-            countPictures('album');
-            countPictures('videos');
-        };
-    
-        // Function to handle view more button click
-        function toggleView(containerId) {
-            var pictures = document.querySelectorAll('#' + containerId + ' .picture-container .picture.more');
-            for (var i = 0; i < pictures.length; i++) {
-                if (pictures[i].style.display === 'none') {
-                    pictures[i].style.display = 'block';
-                    document.querySelector('#' + containerId + ' .view-more button').innerText = 'View Less';
-                } else {
-                    pictures[i].style.display = 'none';
-                    document.querySelector('#' + containerId + ' .view-more button').innerText = 'View More';
-                }
-            }
-        }
-    </script>
-   
 </div>
+</div>
+<h2>About Me</h2>
+<p>Hey there, gorgeous! I'm Divya, your friendly neighborhood makeup artist based in the vibrant city of Bangalore. At 21, I'm on a mission to spread beauty and confidence one brush stroke at a time. With my passion for all things makeup, I've honed my skills to perfection, specializing in creating looks that make you feel like the best version of yourself, whether it's for a casual outing or a grand event. From soft and natural glam to bold and dramatic styles, I've got you covered! With personalized consultations and a keen eye for detail, I strive to bring out your unique beauty in every look I create. So, if you're ready to shine and slay, let's make some magic together! 💄✨</p>
 <hr>
-<h3>About</h3>
+<hr>
+<h2>Other Artists You Might Like</h2>
+<hr>
+<!-- View More Button 
+<div class="artist-container">
+    <div class="artist-card">
+        <img src="C:\Users\cheth\Desktop\GlamUr\assets\images\Artists-img\1712307615_image4716.jpg" alt="Artist">
+        <h3>Artist Name</h3>
+        <p><strong>Rating:</strong> <span class="rating">⭐⭐⭐⭐⭐</span></p>
+        <p><strong>Bio:</strong> Brief description of the artist.</p>
+        <button>Contact</button>
+    </div>
+    <div class="artist-card">
+        <img src="C:\Users\cheth\Desktop\GlamUr\assets\images\Artists-img\1712307615_image4716.jpg" alt="Artist">
+        <h3>Artist Name</h3>
+        <p><strong>Rating:</strong> <span class="rating">⭐⭐⭐⭐⭐</span></p>
+        <p><strong>Bio:</strong> Brief description of the artist.</p>
+        <button>Contact</button>
+    </div> -->
+</div>
+<h2>reviews</h2>
+<hr>
+<div class="review-section" id="review">
+    <div class="comments-section">
+        <h3>Comments</h3>
+        <div class="comments" id="comments-section">
+            <div class="comment">This is a great product!</div>
+            <div class="comment">Really enjoyed using this service.</div>
+            <div class="comment">Could be better, but overall satisfied.</div>
+            <div class="comment">Exceeded my expectations!</div>
+            <div class="comment" style="display: none;">Will definitely use again.</div>
+            <div class="comment" style="display: none;">Not worth the price.</div>
+            <div class="comment" style="display: none;">Customer service was fantastic!</div>
+            <div class="comment" style="display: none;">Highly recommended.</div>
+        </div>
+        <div class="load-more" id="load-more">
+            <button onclick="loadMoreComments()">Load More</button>
+        </div>
+    </div>
+    <div class="review-form">
+        <h3>Write a Review</h3>
+        <textarea id="review-text" placeholder="Write your review here..."></textarea>
+        <button onclick="submitReview()">Submit Review</button>
+    </div>
+</div>
 </body>
 </html>
