@@ -191,6 +191,11 @@
             flex-wrap: wrap;
             justify-content: space-around;
             margin-top: 20px;
+            width: 300px;
+            display: flex;
+            overflow-x: auto; /* Add horizontal scrollbar */
+            scrollbar-width: thin;
+           
         }
 
         .artist-card {
@@ -297,6 +302,30 @@
         .load-more button:hover {
             background-color: #ff1493; /* Darker pink on hover */
         }
+        .category-item-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: auto hidden;
+  scroll-snap-type: inline mandatory;
+  overscroll-behavior-inline: contain;
+}
+.has-scrollbar { padding-bottom: 5px; }
+
+.has-scrollbar::-webkit-scrollbar {
+  width: 12px; /* for vertical scroll */
+  height: 12px; /* for horizontal scroll */
+}
+
+.has-scrollbar::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: 3px solid var(--white);
+  border-radius: 20px;
+}
+
+.has-scrollbar:hover::-webkit-scrollbar-thumb { background: hsl(0, 0%, 90%); }
+
+.has-scrollbar::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 80%); }
     </style>
 </head>
 <body>
@@ -376,6 +405,98 @@
 
             loadMoreButton.innerHTML = "<button onclick='loadMoreComments()'>Load More</button>";
         }
+        let previousState = ''; // Variable to store previous state
+
+              // Function to show quotation section
+              function showQuotation() {
+            document.getElementById('quotation-section').style.display = 'block';
+            document.getElementById('booking-section').style.display = 'none';
+        }
+    
+        // Function to show booking section
+        function showBooking() {
+            document.getElementById('booking-section').style.display = 'block';
+            document.getElementById('quotation-section').style.display = 'none';
+        }
+    
+        // Function to calculate total price
+        function calculateTotal() {
+            // Get all checkboxes
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            let totalPrice = 0;
+    
+            // Loop through each checkbox
+            checkboxes.forEach((checkbox) => {
+                // If checkbox is checked, add its value to totalPrice
+                if (checkbox.checked) {
+                    const priceElement = checkbox.parentElement.previousElementSibling;
+                    totalPrice += parseInt(priceElement.innerText.slice(1));
+                }
+            });
+    
+            // Display total price
+            document.getElementById('total-price').innerText = `Total Price: ₹${totalPrice}`;
+        }
+    
+        // Function to download selected services as plain text
+        function downloadServices() {
+            let content = "Selected Services:\n\n";
+    
+            // Get all checkboxes
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    
+            // Loop through each checkbox
+            checkboxes.forEach((checkbox) => {
+                // If checkbox is checked, add the service and price to the content
+                if (checkbox.checked) {
+                    const row = checkbox.parentElement.parentElement;
+                    const service = row.cells[0].innerText;
+                    const price = row.cells[1].innerText;
+                    content += `${service}: ${price}\n`;
+                }
+            });
+    
+            // Add the total price to the content
+            const totalPriceText = document.getElementById('total-price').innerText;
+            content += `\n${totalPriceText}`;
+    
+            // Create a data URI containing the plain text content
+            const dataUri = "data:text/plain;charset=utf-8," + encodeURIComponent(content);
+    
+            // Create a temporary anchor element and trigger download
+            const a = document.createElement('a');
+            a.href = dataUri;
+            a.download = "selected_services.txt"; // Set the download filename
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    
+        // Function to cancel download and reset the quotation section
+        function cancelDownload() {
+            // Uncheck all checkboxes
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach((checkbox) => {
+                checkbox.checked = false;
+            });
+            // Reset total price
+            document.getElementById('total-price').innerText = `Total Price: ₹0`;
+            // Hide booking section and show quotation section
+            document.getElementById('booking-section').style.display = 'none';
+            document.getElementById('quotation-section').style.display = 'block';
+        }
+       // Function to cancel download and hide the quotation section
+function cancelDownload() {
+    // Uncheck all checkboxes
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((checkbox) => {
+        checkbox.checked = false;
+    });
+    // Reset total price
+    document.getElementById('total-price').innerText = `Total Price: ₹0`;
+    // Hide the quotation section
+    document.getElementById('quotation-section').style.display = 'none';
+}
     </script>
 
 <div class="profile-con">
@@ -383,7 +504,7 @@
         <img src="C:\Users\cheth\Desktop\GlamUr\assets\images\Artists-img\1712307615_image4716.jpg"alt="Makeup Artist">
     </div>
     <div class="profile-info">
-        <h2>Divya</h2>
+        <h2>artist</h2>
         <p><strong>Bio:</strong> Hey, I'm Divya, your go-to makeup artist in Bangalore! At 21, I'm all about crafting looks that make you feel fabulous, from everyday glam to special occasions. Let's bring out your beauty together!</p>
         <p><strong>Experience:</strong> 10+ years</p>
         <p><strong>Rating:</strong> <span class="rating">4.8</span> (Based on 100 reviews)</p>
@@ -402,10 +523,84 @@
         
         <!-- Buttons -->
         <button onclick="bookAppointment()">Book</button>
-            <button onclick="requestQuotation()">Quotation</button>
+            <button onclick="showQuotation()">Quotation</button>
         
     </div>
-    
+    <div id="quotation-section" style="display: none;">
+        <div class="menu-container">
+            <div class="menu-column">
+                <table id="makeup-table">
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Price (₹)</th>
+                            <th>Select</th> <!-- Move checkbox column to the right -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Foundation</td>
+                            <td>₹500</td>
+                            <td><input type="checkbox" id="foundation-checkbox" onchange="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Lipstick</td>
+                            <td>₹350</td>
+                            <td><input type="checkbox" id="lipstick-checkbox" onchange="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Eyeshadow</td>
+                            <td>₹400</td>
+                            <td><input type="checkbox" id="eyeshadow-checkbox" onchange="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Eyebrow products</td>
+                            <td>₹300</td>
+                            <td><input type="checkbox" id="eyebrow-checkbox" onchange="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Primer</td>
+                            <td>₹450</td>
+                            <td><input type="checkbox" id="primer-checkbox" onchange="calculateTotal()"></td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>Foundation</td>
+                            <td>₹500</td>
+                            <td><input type="checkbox" id="foundation-checkbox" onchange="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Lipstick</td>
+                            <td>₹350</td>
+                            <td><input type="checkbox" id="lipstick-checkbox" onchange="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Eyeshadow</td>
+                            <td>₹400</td>
+                            <td><input type="checkbox" id="eyeshadow-checkbox" onchange="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Eyebrow products Eyebrow products</td>
+                            <td>₹300</td>
+                            <td><input type="checkbox" id="eyebrow-checkbox" onchange="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Primer</td>
+                            <td>₹450</td>
+                            <td><input type="checkbox" id="primer-checkbox" onchange="calculateTotal()"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="menu-column">
+                <h3><div id="total-price"></div></h3>
+                <button onclick="downloadServices()">Download Quotation</button>
+                <button onclick="cancelDownload()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
 </div>
 <div class="sublinks">
     <a href="#portfolio">Projects</a>
@@ -475,12 +670,30 @@
         </div>
     </div>
 </div>
+</div>
 <h2>About Me</h2>
 <p>Hey there, gorgeous! I'm Divya, your friendly neighborhood makeup artist based in the vibrant city of Bangalore. At 21, I'm on a mission to spread beauty and confidence one brush stroke at a time. With my passion for all things makeup, I've honed my skills to perfection, specializing in creating looks that make you feel like the best version of yourself, whether it's for a casual outing or a grand event. From soft and natural glam to bold and dramatic styles, I've got you covered! With personalized consultations and a keen eye for detail, I strive to bring out your unique beauty in every look I create. So, if you're ready to shine and slay, let's make some magic together! 💄✨</p>
 <hr>
 <hr>
 <h2>Other Artists You Might Like</h2>
 <hr>
+<!-- View More Button 
+<div class="artist-container">
+    <div class="artist-card">
+        <img src="C:\Users\cheth\Desktop\GlamUr\assets\images\Artists-img\1712307615_image4716.jpg" alt="Artist">
+        <h3>Artist Name</h3>
+        <p><strong>Rating:</strong> <span class="rating">⭐⭐⭐⭐⭐</span></p>
+        <p><strong>Bio:</strong> Brief description of the artist.</p>
+        <button>Contact</button>
+    </div>
+    <div class="artist-card">
+        <img src="C:\Users\cheth\Desktop\GlamUr\assets\images\Artists-img\1712307615_image4716.jpg" alt="Artist">
+        <h3>Artist Name</h3>
+        <p><strong>Rating:</strong> <span class="rating">⭐⭐⭐⭐⭐</span></p>
+        <p><strong>Bio:</strong> Brief description of the artist.</p>
+        <button>Contact</button>
+    </div> -->
+</div>
 <h2>reviews</h2>
 <hr>
 <div class="review-section" id="review">
